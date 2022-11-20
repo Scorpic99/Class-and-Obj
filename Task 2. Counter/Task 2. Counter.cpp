@@ -2,16 +2,23 @@
 
 class Counter {
 public:
-    int num1 = 1;
     void plus() {
         this->num1 += 1;
     }
     void minus() {
         this->num1 -= 1;
     }
-    void enter() {
-        std::cout << this->num1 << std::endl;
+    Counter() {
+        this->num1 = 1;
     }
+    Counter(int num) {
+        this->num1 = num;
+    }
+    int get_num1() {
+        return num1;
+    }
+private:
+    int num1;
 };
 
 int main()
@@ -24,8 +31,10 @@ int main()
         std::cout << "Вы хотите указать начальное значение счетчика? Введите y/n: " << std::endl;
         std::cin >> input;
         if (input == "y") {
+            int num = 0;
             std::cout << "Введите начальное значение счетчика?" << std::endl;
-            std::cin >> counter.num1;
+            std::cin >> num;
+            Counter countrConstr(num);
             break;
         }
         else if (input == "n") {
@@ -45,7 +54,9 @@ int main()
             counter.minus();
         }
         else if (input == "=") {
-            counter.enter();
+
+            int num = counter.get_num1();
+            std::cout << num << std::endl;
         }
         else if (input == "x" || input == "х") {
             std::cout << "До свидания!" << std::endl;
