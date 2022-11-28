@@ -8,6 +8,7 @@ public:
     void minus() {
         this->num1 -= 1;
     }
+
     Counter() {
         this->num1 = 1;
     }
@@ -34,7 +35,7 @@ int main()
             int num = 0;
             std::cout << "Введите начальное значение счетчика?" << std::endl;
             std::cin >> num;
-            Counter countrConstr(num);
+            counter = Counter(num);
             break;
         }
         else if (input == "n") {
@@ -55,7 +56,7 @@ int main()
         }
         else if (input == "=") {
 
-            int num = counter.get_num1();
+            int num = counter.get_num1();//use get
             std::cout << num << std::endl;
         }
         else if (input == "x" || input == "х") {
